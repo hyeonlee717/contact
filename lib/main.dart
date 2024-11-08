@@ -12,70 +12,48 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          title: const Text(
+            'contact',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           backgroundColor: Colors.blue,
         ),
-        body: Column(
-          children: [
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                children: const [
-                  Icon(
-                    Icons.account_circle,
-                    size: 50,
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    '홍길동',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ],
+        body: ListView.builder(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          itemCount: 150,
+          itemBuilder: (c, i) {
+            return ListTile(
+              leading: Icon(Icons.account_circle, size: 50),
+              title: Text(
+                '홍길동',
+                style: TextStyle(fontSize: 18),
               ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                children: const [
-                  Icon(
-                    Icons.account_circle,
-                    size: 50,
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    '홍길동',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                children: const [
-                  Icon(
-                    Icons.account_circle,
-                    size: 50,
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    '홍길동',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ],
-              ),
-            ),
-          ],
+            );
+          },
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: '홈',
-            ),
-          ],
+        bottomNavigationBar: SizedBox(
+          height: 100,
+          child: BottomNavigationBar(
+            backgroundColor: Colors.grey.shade200,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.call),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.message),
+                label: '메세지',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: '프로필',
+              ),
+            ],
+          ),
         ),
       ),
     );
